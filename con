@@ -1,0 +1,36 @@
+public class ContinueWithLabel {
+    public static void main(String[] args) {
+        char[] rijec={'a','d','i'};
+        String recenica="trazim svaki put kad se adi nasmijao. adi je zaista zabavan tip.";
+        char [] recenicaNiz=recenica.toCharArray();
+        int i,j;
+       int brojac=0;
+      lab: for(i=0;i< recenicaNiz.length;i++){
+           for(j=0;j< rijec.length;j++){
+               j=0;
+               if(recenicaNiz[i]==rijec[j]){
+                   ++i; ++j;
+                   if(recenicaNiz[i]==rijec[j]){
+                       ++i; ++j;
+                       if(recenicaNiz[i]==rijec[j]){
+                           brojac++;
+                            continue lab;
+                       }else{
+                           i=i-1;
+
+                       }
+                   }else{
+                       i=i-1;
+                   }
+               }
+               j=0;
+                i++;
+                if(i>=64){
+                    break lab;
+                }
+           }
+       }
+       String poruka=String.format("Rijec adi se ponavlja '%d' puta.",brojac);
+        System.out.println(poruka);
+    }
+}
